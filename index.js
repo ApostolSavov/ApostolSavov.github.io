@@ -7,8 +7,8 @@ let interval = null
 let alarm = new Audio("./alarm.mp3")
 
 button.addEventListener('click', (e) => {
-    if (e.target.tagName !== 'BUTTON' || (minuteField.value === '00' && secondField.value === '00')) return
     state = !state
+    if (e.target.tagName !== 'BUTTON' || (minuteField.value === '00' && secondField.value === '00')) return
     time = minuteField.value * 60 + +secondField.value
     if (state) {
         interval = setInterval(increment, 1000)
@@ -25,7 +25,6 @@ function increment() {
         minuteField.value = '00'
         secondField.value = '00'
         alarm.play()
-        state = !state
     }
     let minutes = Math.floor(time / 60)
     let seconds = time % 60
