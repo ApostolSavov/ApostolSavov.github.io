@@ -9,6 +9,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    animation-name: initialize;
+    animation-duration: 2s;
 }
 
 .main {
@@ -84,7 +86,7 @@ input {
     text-align: right;
 }
 
-#seconds{
+#seconds {
     text-align: left;
 }
 
@@ -92,4 +94,14 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
+}
+
+@keyframes initialize {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
