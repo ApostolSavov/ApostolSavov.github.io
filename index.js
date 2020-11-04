@@ -1,0 +1,36 @@
+let minuteField = document.querySelector('#minutes')
+let secondField = document.querySelector('#seconds')
+let button = document.querySelector('.button')
+let state = false
+let time = ''
+let interval = null
+let alarm = new Audio("./alarm.mp3")
+
+button.addEventListener('click', (e) => {
+    state = !state
+    if (e.target.tagName !== 'BUTTON' || (minuteField.value === '00' && secondField.value === '00')) return
+    time = minuteField.value * 60 + +secondField.value
+    if (state) {
+        interval = setInterval(increment, 1000)
+    } else if (!state) {
+        clearInterval(interval)
+        minuteField.value = '00'
+        secondField.value = '00'
+    }
+})
+
+function increment() {
+    if (time <= 0) {
+        clearInterval(interval)
+        minuteField.value = '00'
+        secondField.value = '00'
+        alarm.play()
+    }
+    let minutes = Math.floor(time / 60)
+    let seconds = time % 60
+    minuteField.value = minutes < 10 ? `0${minutes}` : minutes
+    secondField.value = seconds < 10 ? `0${seconds}` : seconds
+    time--
+}
+
+
