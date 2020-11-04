@@ -2,7 +2,7 @@
 
 body {
     margin: 0;
-    padding: 0;
+    padding: 0 15px 0;
     font-family: 'Oswald', sans-serif;
     height: 100vh;
     background-color: rgb(52, 52, 52);
@@ -57,7 +57,7 @@ body {
         inset 0px 5px 5px rgba(255, 255, 255, 0.1);
     border-radius: 20px;
     padding: 0 20px 15px;
-    transition: box-shadow 0.1s linear, font-size 0.1s linear;
+    transition: box-shadow 0.07s linear, font-size 0.07s linear;
 
 }
 
