@@ -7,7 +7,11 @@ let interval = null
 let alarm = new Audio("./alarm.mp3")
 
 button.addEventListener('click', (e) => {
-    if (e.target.tagName !== 'BUTTON' || (minuteField.value === '00' && secondField.value === '00')) return
+    if (e.target.tagName !== 'BUTTON') return
+    if (String(minuteField.value) === '00' && String(secondField.value) === '00') {
+        alert('Please enter a number.')
+        return
+    }
     state = !state
     time = minuteField.value * 60 + +secondField.value
     if (state) {
