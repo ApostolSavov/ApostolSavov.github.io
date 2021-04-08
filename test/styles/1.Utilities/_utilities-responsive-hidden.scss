@@ -1,0 +1,11 @@
+.u-responsive-hidden{
+    @include phone{
+        display: none !important;
+    }
+}
+
+.u-responsive-hidden--small-desktop{
+    @include small-desktop{
+        display: none !important;
+    }
+}

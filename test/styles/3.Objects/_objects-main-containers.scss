@@ -1,0 +1,153 @@
+.o-main-container {
+    opacity: 0;
+    animation: start-appear-only-opacity 2s ease-out forwards;
+
+    &::before {
+        content: '';
+        position: absolute;
+        background-color: $blue-400;
+        height: 302px;
+        width: 100%;
+        left: 0;
+        right: 0;
+    }
+
+    &--no-pseudo {
+        opacity: 0;
+        animation: start-appear-only-opacity 2s ease-out forwards;
+    }
+
+    &--map-pseudo {
+        opacity: 0;
+        animation: start-appear-only-opacity 2s ease-out forwards;
+
+        &::before {
+            content: '';
+            position: absolute;
+            background-image: url('./assets/images/Map.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 500px;
+        }
+    }
+
+    .o-main-grid-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, min-content);
+
+        @include small-desktop {
+            grid-template-columns: 100%;
+        }
+
+        &--three-rows {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(3, min-content);
+
+            @include small-desktop {
+                grid-template-columns: 100%;
+            }
+        }
+    }
+}
+
+.o-details-container {
+    display: grid;
+    grid-template-columns: repeat(7, min-content);
+    grid-template-rows: 1fr;
+    column-gap: 32px;
+    align-items: center;
+
+    @include small-desktop {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(7, min-content);
+        column-gap: 0;
+        row-gap: 24px;
+        align-items: unset;
+        justify-items: left;
+    }
+}
+
+.o-content-wrapper {
+    display: grid;
+    align-content: center;
+
+    &--different-items {
+        grid-template-columns: 735px 440px;
+        grid-template-rows: min-content;
+        column-gap: 100px;
+        align-items: center;
+
+        @include small-desktop {
+            grid-template-columns: auto 440px;
+        }
+
+        @include tablet {
+            grid-template-columns: 100%;
+            grid-template-rows: repeat(2, min-content);
+            row-gap: 32px;
+            justify-items: center;
+        }
+
+        &--shorter {
+            grid-template-columns: 608px 1fr;
+            grid-template-rows: min-content;
+            column-gap: 100px;
+
+            @include small-desktop {
+                grid-template-columns: repeat(2, min-content);
+                justify-content: center;
+            }
+
+            @include tablet {
+                display: none;
+            }
+        }
+    }
+
+    &--equal-items {
+        grid-template-columns: 1fr min-content 1fr;
+        grid-template-rows: 230px;
+        column-gap: 88px;
+        align-items: center;
+
+        @include small-desktop {
+            grid-template-columns: 100%;
+            grid-template-rows: repeat(3, min-content);
+            row-gap: 32px;
+            justify-items: center;
+            margin-top: 66px;
+        }
+
+        &--extra-height {
+            grid-template-columns: 1fr min-content 1fr;
+            grid-template-rows: 334px;
+            column-gap: 32px;
+            align-items: center;
+
+            @include small-desktop {
+                grid-template-columns: 100%;
+                grid-template-rows: repeat(3, min-content);
+                row-gap: 32px;
+            }
+        }
+    }
+
+    &--two-equal-containers {
+        grid-template-columns: repeat(2, min-content);
+        grid-template-rows: 1fr;
+        column-gap: 32px;
+
+        @include custom-page-2{
+            grid-template-columns: 100%;
+            justify-items: center;
+            row-gap: 64px;
+            column-gap: 0;
+        }
+    }
+}

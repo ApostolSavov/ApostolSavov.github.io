@@ -1,0 +1,13 @@
+.u-desktop-hidden{
+    display: none !important;
+
+    @include phone{
+        display: inline-block !important;
+    }
+
+    &--small-desktop{
+        @include small-desktop{
+            display: inline-block !important;
+        }
+    }
+}
